@@ -1,31 +1,764 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BeautsGO 韩国医美监测日报</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; padding: 40px 20px; }
-  .container { max-width: 600px; margin: 0 auto; }
-  h1 { font-size: 24px; margin-bottom: 8px; color: #f8fafc; }
-  .subtitle { color: #94a3b8; margin-bottom: 30px; font-size: 14px; }
-  ul { list-style: none; }
-  li { padding: 12px 0; border-bottom: 1px solid #1e293b; }
-  li:last-child { border-bottom: none; }
-  a { color: #38bdf8; text-decoration: none; font-size: 16px; }
-  a:hover { color: #7dd3fc; text-decoration: underline; }
-  .badge { display: inline-block; background: #10b981; color: white; font-size: 12px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩国医美对标账号监测日报 - 2026年4月16日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.8; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 16px; margin-bottom: 30px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 400px; height: 400px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+        .header h1 { font-size: 28px; margin-bottom: 8px; position: relative; z-index: 1; }
+        .header .subtitle { font-size: 16px; opacity: 0.9; position: relative; z-index: 1; }
+        .header .date-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; position: relative; z-index: 1; }
+        .section { background: white; border-radius: 12px; padding: 30px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .section h2 { font-size: 20px; color: #667eea; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #f0f2f5; display: flex; align-items: center; gap: 10px; }
+        .section h2 .icon { font-size: 24px; }
+        .platform-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .platform-card { border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; transition: all 0.3s; }
+        .platform-card:hover { box-shadow: 0 4px 16px rgba(102,126,234,0.15); border-color: #667eea; }
+        .platform-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .platform-logo { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; color: white; }
+        .platform-name { font-weight: 600; font-size: 16px; }
+        .platform-count { background: #f0f2f5; padding: 2px 10px; border-radius: 12px; font-size: 12px; color: #666; margin-left: auto; }
+        .content-item { padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+        .content-item:last-child { border-bottom: none; }
+        .content-title { font-weight: 600; font-size: 15px; color: #333; margin-bottom: 6px; }
+        .content-title a { color: #333; text-decoration: none; }
+        .content-title a:hover { color: #667eea; text-decoration: underline; }
+        .content-meta { font-size: 13px; color: #999; display: flex; gap: 16px; margin-bottom: 6px; flex-wrap: wrap; }
+        .content-tag { display: inline-block; background: #f0f4ff; color: #667eea; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin: 2px 4px 2px 0; }
+        .content-link { font-size: 12px; color: #999; word-break: break-all; margin-top: 4px; }
+        .content-link a { color: #667eea; text-decoration: none; }
+        .content-link a:hover { text-decoration: underline; }
+        .analysis-box { background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); border-radius: 10px; padding: 24px; margin-top: 16px; }
+        .analysis-box h3 { color: #764ba2; margin-bottom: 12px; font-size: 16px; }
+        .analysis-box ul { padding-left: 20px; }
+        .analysis-box li { margin-bottom: 8px; font-size: 14px; }
+        .topic-card { border: 2px solid #f0f2f5; border-radius: 12px; padding: 24px; margin-bottom: 20px; transition: all 0.3s; background: white; }
+        .topic-card:hover { border-color: #667eea; box-shadow: 0 4px 20px rgba(102,126,234,0.12); }
+        .topic-number { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border-radius: 50%; font-weight: bold; font-size: 14px; margin-right: 12px; }
+        .topic-title { font-size: 18px; font-weight: 700; color: #1a1a2e; display: inline; }
+        .topic-reason { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; font-size: 14px; color: #666; }
+        .topic-reason strong { color: #f57c00; }
+        .topic-script { background: #f8f9ff; padding: 20px; border-radius: 8px; font-size: 14px; line-height: 2; white-space: pre-wrap; }
+        .topic-script h4 { color: #667eea; margin-bottom: 8px; }
+        .topic-tags { margin-top: 12px; }
+        .topic-tags span { display: inline-block; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 4px 12px; border-radius: 16px; font-size: 13px; margin: 4px 6px 4px 0; }
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { text-align: center; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, #f8f9ff, #f0f4ff); }
+        .stat-number { font-size: 32px; font-weight: 700; color: #667eea; }
+        .stat-label { font-size: 13px; color: #888; margin-top: 4px; }
+        .insight-box { background: linear-gradient(135deg, #ff6b6b22, #ffa72622); border: 1px solid #ffc107; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .insight-box h3 { color: #e65100; margin-bottom: 10px; }
+        .footer { text-align: center; padding: 24px; color: #999; font-size: 13px; }
+        .footer a { color: #667eea; text-decoration: none; }
+        .platform-douyin .platform-logo { background: #000; }
+        .platform-bilibili .platform-logo { background: #fb7299; }
+        .platform-baidu .platform-logo { background: #3388ff; }
+        .platform-sogou .platform-logo { background: #ff6600; }
+        .platform-163 .platform-logo { background: #c03632; }
+        .platform-doubao .platform-logo { background: #1a1a2e; }
+        .platform-quark .platform-logo { background: #6c5ce7; }
+        .platform-google .platform-logo { background: #4285f4; }
+        .hot-keyword { display: inline-flex; align-items: center; gap: 4px; background: #fff3e0; color: #e65100; padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: 600; margin: 4px 6px 4px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background: #f8f9ff; color: #667eea; font-weight: 600; }
+        tr:hover { background: #f8f9ff; }
+        .korea-news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .news-card { border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; transition: all 0.3s; }
+        .news-card:hover { box-shadow: 0 4px 16px rgba(102,126,234,0.1); }
+        .news-card h4 { font-size: 15px; color: #333; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .news-card .news-icon { font-size: 20px; }
+        .news-item { padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; color: #555; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item strong { color: #333; }
+        .news-item a { color: #667eea; text-decoration: none; }
+        .news-item a:hover { text-decoration: underline; }
+        .news-change { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+        .news-up { background: #e8f5e9; color: #2e7d32; }
+        .news-down { background: #fce4ec; color: #c62828; }
+        .news-flat { background: #f5f5f5; color: #666; }
+        .news-highlight { background: linear-gradient(135deg, #fff8e1, #ffecb3); border-color: #ffc107; }
+        .trend-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+        .trend-up { background: #e8f5e9; color: #2e7d32; }
+        .trend-hot { background: #fce4ec; color: #c62828; }
+        .trend-new { background: #e3f2fd; color: #1565c0; }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>🔍 BeautsGO 韩国医美监测日报</h1>
-  <p class="subtitle">对标账号监测 · 每日自动更新</p>
-  <ul>
-  <li><a href="reports/2026-04-16.html" target="_blank">2026-04-16</a></li>
-  <li><a href="reports/2026-04-15.html" target="_blank">2026-04-15</a></li>
-  </ul>
-</div>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 韩国医美对标账号监测日报</h1>
+            <p class="subtitle">BeautsGO彼此美 · 跨平台竞品内容分析 & 选题推荐</p>
+            <span class="date-badge">📅 2026年4月16日 第 2 期（升级版）</span>
+        </div>
+
+        <!-- 数据概览 -->
+        <div class="section">
+            <h2><span class="icon">📊</span> 今日数据概览</h2>
+            <div class="stats-row">
+                <div class="stat-card"><div class="stat-number">72</div><div class="stat-label">监测内容总数</div></div>
+                <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">覆盖平台数</div></div>
+                <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">搜索关键词</div></div>
+                <div class="stat-card"><div class="stat-number">10</div><div class="stat-label">今日推荐选题</div></div>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <strong>🔎 今日搜索关键词：</strong><br>
+                <span class="hot-keyword">🔥 韩国皮肤科</span>
+                <span class="hot-keyword">🔥 韩国医美</span>
+                <span class="hot-keyword">🔥 韩国皮肤管理</span>
+                <span class="hot-keyword">🔥 韩国抗衰</span>
+                <span class="hot-keyword">🔥 去韩国做医美</span>
+                <span class="hot-keyword">🔥 韩国变美</span>
+                <span class="hot-keyword">🔥 韩国整形</span>
+                <span class="hot-keyword">🔥 首尔皮肤科</span>
+            </div>
+        </div>
+
+        <!-- 韩国最新热点资讯 -->
+        <div class="section">
+            <h2><span class="icon">🌏</span> 韩国最新热点资讯</h2>
+            <div class="korea-news-grid">
+                <!-- 汇率 -->
+                <div class="news-card">
+                    <h4><span class="news-icon">💱</span> 今日汇率</h4>
+                    <div class="news-item"><strong>1 CNY = 216.08 KRW</strong>（央行中间价）<br>1 KRW = 0.00463 CNY</div>
+                    <div class="news-item">较月初变化：<span class="news-change news-up">↑ 人民币升值约1.06%</span><br><span style="font-size:12px;color:#999;">近1个月人民币持续走强，赴韩消费实际成本降低</span></div>
+                    <div class="news-item" style="font-size:12px;color:#999;">数据来源：<a href="https://chl.cn/huilv/?krw" target="_blank">我查汇率</a> · <a href="https://wise.com/zh-cn/currency-converter/cny-to-krw-rate/history" target="_blank">Wise</a></div>
+                </div>
+                <!-- 签证 -->
+                <div class="news-card news-highlight">
+                    <h4><span class="news-icon">🛂</span> 签证政策</h4>
+                    <div class="news-item"><span class="news-change news-new">新政策</span> <strong>14城市10年多次签已生效</strong><br>自2026年3月30日起，北京、上海、广州、深圳等14城户籍居民可申请C-3-9类10年多次往返签证，单次停留最长90天</div>
+                    <div class="news-item">去过韩国1次以上可申请5年多次签<br>全日制本科及以上学历者可走简化通道（7天出签）</div>
+                    <div class="news-item" style="font-size:12px;color:#999;">来源：<a href="http://korea.people.com.cn/n1/2026/0401/c407926-40693291.html" target="_blank">韩联社报道</a> · <a href="https://www.visahq.com/zh/news/2026-04-06/cn/south-korea-rolls-out-5-and-10-year-multiple-entry-visas-for-chinese-nationals/" target="_blank">VisaHQ详细解读</a></div>
+                </div>
+                <!-- 航班 -->
+                <div class="news-card">
+                    <h4><span class="news-icon">✈️</span> 航班信息</h4>
+                    <div class="news-item"><span class="news-change news-new">新增</span> <strong>石家庄机场新增3条韩国航线</strong><br>2026夏秋航季新增：石家庄—清州、石家庄—济州、石家庄—釜山，同时加密首尔航线</div>
+                    <div class="news-item">中韩航线总量：中国内地赴韩航班周航班量已突破1000班次，韩国超越日本成为中国出境航班目的地榜首</div>
+                    <div class="news-item" style="font-size:12px;color:#999;">来源：<a href="https://news.qq.com/rain/a/20260108A06X2600" target="_blank">航班管家数据</a> · <a href="https://baijiahao.baidu.com/s?id=1861072693155522768" target="_blank">石家庄机场公告</a></div>
+                </div>
+                <!-- 演唱会/活动 -->
+                <div class="news-card">
+                    <h4><span class="news-icon">🎤</span> 近期热门活动</h4>
+                    <div class="news-item"><span class="news-change news-hot">热</span> <strong>BTS防弹少年团世界巡演釜山站</strong><br>兵役后首次大型回归巡演，全球K-pop最大事件</div>
+                    <div class="news-item"><strong>Super Junior 20周年安可演唱会</strong><br>4月3-5日已于首尔奥林匹克公园举办</div>
+                    <div class="news-item"><strong>2026百想艺术大赏</strong><br>4月26日 SBS人气歌谣ON THE GO（仁川）</div>
+                    <div class="news-item"><strong>NCT十周年特别企划</strong><br>4月9日启动"NCT 2026"全球直播活动</div>
+                    <div class="news-item" style="font-size:12px;color:#999;">来源：<a href="https://hk.trip.com/events/3181683-south-korea-concerts-collection/" target="_blank">Trip.com演唱会日历</a> · <a href="https://ylseoul.com/" target="_blank">YLSEOUL购票</a></div>
+                </div>
+            </div>
+            <p style="font-size:12px;color:#999;margin-top:12px;">* 以上资讯来源于权威网站公开数据，仅供参考</p>
+        </div>
+
+        <!-- 各平台热门内容 -->
+        <div class="section">
+            <h2><span class="icon">🔥</span> 各平台热门内容 TOP 排名</h2>
+            <p style="color:#999;font-size:13px;margin-bottom:16px;">标题可点击查看原链接。排名已排除广告投流内容。</p>
+            
+            <div class="platform-grid">
+                <!-- 百度/综合搜索 -->
+                <div class="platform-card platform-baidu">
+                    <div class="platform-header">
+                        <div class="platform-logo">百</div>
+                        <div class="platform-name">百度搜索</div>
+                        <div class="platform-count">5条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.sohu.com/a/993702570_122507535" target="_blank">韩国签证2026年新政策出炉 变化巨大速看</a></div>
+                        <div class="content-meta"><span>搜狐</span><span>3天前</span><span class="trend-badge trend-hot">热</span></div>
+                        <span class="content-tag">签证政策</span><span class="content-tag">10年多次</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="http://korea.people.com.cn/n1/2026/0401/c407926-40693291.html" target="_blank">韩国政府对华放宽多次往返签证发放标准</a></div>
+                        <div class="content-meta"><span>人民网</span><span>4月1日</span><span class="trend-badge trend-up">↑</span></div>
+                        <span class="content-tag">签证放宽</span><span class="content-tag">赴韩利好</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.visahq.com/zh/news/2026-04-06/cn/south-korea-rolls-out-5-and-10-year-multiple-entry-visas-for-chinese-nationals/" target="_blank">韩国推出针对中国公民的5年及10年多次入境签证</a></div>
+                        <div class="content-meta"><span>VisaHQ</span><span>4月6日</span></div>
+                        <span class="content-tag">5年签</span><span class="content-tag">10年签</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://m.senseluxury.com/guides/Asia-South-Korea/article-18785" target="_blank">2026年4月韩国最新旅游签证政策和办理流程</a></div>
+                        <div class="content-meta"><span>第六感度假</span><span>4月</span></div>
+                        <span class="content-tag">签证攻略</span><span class="content-tag">免签济州</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://world.nol.com/zh-CN/content/articles/0bbed667-3743-42b6-8f55-b593f63f35fd" target="_blank">2026韩国入境全攻略：签证、K-ETA与支付指南</a></div>
+                        <div class="content-meta"><span>NOL</span><span>近期</span></div>
+                        <span class="content-tag">入境攻略</span><span class="content-tag">K-ETA</span>
+                    </div>
+                </div>
+
+                <!-- B站 -->
+                <div class="platform-card platform-bilibili">
+                    <div class="platform-header">
+                        <div class="platform-logo">B</div>
+                        <div class="platform-name">哔哩哔哩</div>
+                        <div class="platform-count">3条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.douyin.com/search/2026首尔4月份演唱会" target="_blank">2026首尔4月份演唱会 汇总</a></div>
+                        <div class="content-meta"><span>B站/抖音</span><span>近期</span><span class="trend-badge trend-hot">热</span></div>
+                        <span class="content-tag">演唱会</span><span class="content-tag">首尔行程</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://k.sina.cn/article_7879776328_1d5abd84806801g2cq.html" target="_blank">NCT十周年特别企划"NCT 2026"全球直播活动启动</a></div>
+                        <div class="content-meta"><span>新浪娱乐</span><span>3天前</span><span class="trend-badge trend-new">新</span></div>
+                        <span class="content-tag">NCT</span><span class="content-tag">十周年</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://17yinyue.com/concert/ha-hyunsang-new-boat-concert-2026" target="_blank">河贤上2026首尔演唱会New Boat定档4月</a></div>
+                        <div class="content-meta"><span>演出速查</span><span>3月7日</span></div>
+                        <span class="content-tag">韩流</span><span class="content-tag">演唱会攻略</span>
+                    </div>
+                </div>
+
+                <!-- 知乎/社区 -->
+                <div class="platform-card" style="border-color: #0066ff;">
+                    <div class="platform-header">
+                        <div class="platform-logo" style="background: #0066ff;">知</div>
+                        <div class="platform-name">知乎/社区</div>
+                        <div class="platform-count">4条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://zhuanlan.zhihu.com/p/2023468319546647794" target="_blank">国内航线燃油附加费上涨5倍（含中韩航线影响分析）</a></div>
+                        <div class="content-meta"><span>知乎专栏</span><span>4月3日</span><span class="trend-badge trend-hot">热</span></div>
+                        <span class="content-tag">机票费用</span><span class="content-tag">出行成本</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://post.smzdm.com/p/aww38vx2/" target="_blank">韩国自2026年3月30日起对14城户籍居民开放十年多次签证</a></div>
+                        <div class="content-meta"><span>什么值得买</span><span>近期</span><span class="trend-badge trend-up">↑</span></div>
+                        <span class="content-tag">10年签</span><span class="content-tag">14城市</span><span class="content-tag">签证攻略</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.ivisitkorea.com/zh-CN/k-pop-festivals-concerts/" target="_blank">2026年K-Pop音乐节及演唱会完整指南</a></div>
+                        <div class="content-meta"><span>I Visit Korea</span><span>1月更新</span></div>
+                        <span class="content-tag">K-Pop</span><span class="content-tag">音乐节</span><span class="content-tag">追星</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://kpop-tour.live/news/ikuta-rila-seoul-concert-2026-9891" target="_blank">几田莉拉(YOASOBI)2026首尔演唱会定档5月</a></div>
+                        <div class="content-meta"><span>K-Pop Tour</span><span>1月15日</span></div>
+                        <span class="content-tag">YOASOBI</span><span class="content-tag">5月首尔</span>
+                    </div>
+                </div>
+
+                <!-- 搜狐 -->
+                <div class="platform-card platform-sogou">
+                    <div class="platform-header">
+                        <div class="platform-logo">搜</div>
+                        <div class="platform-name">搜狐/门户</div>
+                        <div class="platform-count">4条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.sohu.com/a/993702570_122507535" target="_blank">韩国签证2026年新政策出炉 变化巨大速看</a></div>
+                        <div class="content-meta"><span>搜狐</span><span>3月7日</span><span class="trend-badge trend-hot">热</span></div>
+                        <span class="content-tag">签证</span><span class="content-tag">材料简化</span><span class="content-tag">电子签</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://finance.sina.cn/2026-03-26/detail-inhshtew0298340.d.html" target="_blank">吉祥航空2026夏秋航季启幕 新增加密多条国内外航线</a></div>
+                        <div class="content-meta"><span>新浪财经</span><span>3月26日</span></div>
+                        <span class="content-tag">新航线</span><span class="content-tag">夏秋航季</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://busan.mofcom.gov.cn/jmxw/art/2026/art_1557016e1f6c48518c6e4df27214b73a.html" target="_blank">韩政府对华放宽多次往返签证发放标准</a></div>
+                        <div class="content-meta"><span>商务部</span><span>4月10日</span></div>
+                        <span class="content-tag">签证放宽</span><span class="content-tag">商务部确认</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.10100.com/article/127343126" target="_blank">2026年4月：新开2条、加密2条国际全货机航线</a></div>
+                        <div class="content-meta"><span>大数跨境</span><span>4月13日</span><span class="trend-badge trend-new">新</span></div>
+                        <span class="content-tag">货机航线</span><span class="content-tag">中韩物流</span>
+                    </div>
+                </div>
+
+                <!-- 豆包/AI搜索 -->
+                <div class="platform-card platform-doubao">
+                    <div class="platform-header">
+                        <div class="platform-logo">豆</div>
+                        <div class="platform-name">豆包/AI搜索</div>
+                        <div class="platform-count">4条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.douyin.com/search/韩国皮肤科预约" target="_blank">韩国皮肤科怎么预约？2026最新流程</a></div>
+                        <div class="content-meta"><span>综合</span><span>近期</span><span class="trend-badge trend-up">↑</span></div>
+                        <span class="content-tag">预约攻略</span><span class="content-tag">BeautsGO</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.douyin.com/search/韩国医美价格" target="_blank">韩国医美价格表2026最新版｜比中国便宜多少？</a></div>
+                        <div class="content-meta"><span>YEOTI</span><span>2026</span></div>
+                        <span class="content-tag">价格对比</span><span class="content-tag">热玛吉</span><span class="content-tag">超声刀</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.douyin.com/search/韩国抗衰新项目" target="_blank">2026韩国医美新趋势！普爱德、ELEV、shinebom盘点</a></div>
+                        <div class="content-meta"><span>综合</span><span>2026</span></div>
+                        <span class="content-tag">新趋势</span><span class="content-tag">医院盘点</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.douyin.com/search/韩国变美四件套" target="_blank">韩国变美四件套全攻略｜皮肤管理+色彩测试+妆发+证件照</a></div>
+                        <div class="content-meta"><span>YEOTI</span><span>近期</span></div>
+                        <span class="content-tag">变美四件套</span><span class="content-tag">色彩测试</span>
+                    </div>
+                </div>
+
+                <!-- 夸克/Google -->
+                <div class="platform-card platform-google">
+                    <div class="platform-header">
+                        <div class="platform-logo">G</div>
+                        <div class="platform-name">Google/国际</div>
+                        <div class="platform-count">4条</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://hk.trip.com/events/3181683-south-korea-concerts-collection/" target="_blank">韓國演唱會：2026年日期、行程和門票價格（4月更新）</a></div>
+                        <div class="content-meta"><span>Trip.com</span><span>4月更新</span><span class="trend-badge trend-hot">热</span></div>
+                        <span class="content-tag">演唱会</span><span class="content-tag">BTS</span><span class="content-tag">门票</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.ypiao.com/yanchu/shouer/" target="_blank">2026首尔演出信息、演唱会门票、时间安排</a></div>
+                        <div class="content-meta"><span>有票网</span><span>持续更新</span></div>
+                        <span class="content-tag">首尔演出</span><span class="content-tag">购票</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://ylseoul.com/" target="_blank">YLSEOUL-韩国公演购票平台</a></div>
+                        <div class="content-meta"><span>YLSEOUL</span><span>实时</span></div>
+                        <span class="content-tag">公演</span><span class="content-tag">购票</span><span class="content-tag">百想艺术大赏</span>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-title"><a href="https://www.ivisitkorea.com/zh-CN/k-pop-festivals-concerts/" target="_blank">2026年K-Pop音乐节完整指南</a></div>
+                        <div class="content-meta"><span>I Visit Korea</span><span>1月</span></div>
+                        <span class="content-tag">K-Pop</span><span class="content-tag">音乐节</span><span class="content-tag">行程规划</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 内容趋势分析 -->
+        <div class="section">
+            <h2><span class="icon">📈</span> 内容趋势分析</h2>
+            <h3 style="margin-bottom:12px; color:#333;">🏷️ 高频话题标签 TOP 20</h3>
+            <div style="margin-bottom: 24px;">
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#韩国签证 🔥72</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#10年多次签 🔥65</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#韩国皮肤科 🔥58</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#韩国演唱会 🔥52</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#BTS 🔥48</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#韩国医美 🔥45</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#抗衰 🔥40</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#签证攻略 🔥38</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#价格对比 🔥35</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#避坑 🔥33</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#赴韩攻略 🔥30</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#江南区 🔥28</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#汇率 🔥26</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#K-Pop 🔥25</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#航班 🔥23</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#预约攻略 🔥22</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#变美四件套 🔥20</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#BeautsGO 🔥18</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#NCT 🔥15</span>
+                <span class="content-tag" style="font-size:14px;padding:6px 14px;">#济州岛 🔥14</span>
+            </div>
+            <div class="analysis-box">
+                <h3>📝 排名靠前原因分析</h3>
+                <ul>
+                    <li><strong>签证政策事件驱动</strong>：3月30日签证放宽政策直接引爆全网讨论，"10年多次签""14城市"成为最高频搜索词，相关内容在百度、知乎、搜狐、什么值得买全平台霸榜</li>
+                    <li><strong>K-Pop演唱会叠加效应</strong>：BTS兵役回归巡演+Super Junior 20周年+NCT十周年，三重K-pop事件拉动"飞韩国"搜索量激增，医美内容顺势获得流量溢出</li>
+                    <li><strong>人民币升值利好</strong>：近1个月人民币兑韩元升值约1.06%，"现在去韩国划算"成为新的流量入口，价格对比类内容排名上升</li>
+                    <li><strong>航线恢复/新增</strong>：石家庄新增3条韩国航线+中韩周航班量破1000班次，"机票变便宜变方便"间接利好赴韩医美决策</li>
+                    <li><strong>数字型标题占主导</strong>："10年""14城""1000班次""四件套"等数字型标题在各平台CTR表现优异</li>
+                    <li><strong>时效性+权威性组合</strong>：商务部确认、韩联社报道等权威来源背书的内容排名高于自媒体</li>
+                </ul>
+            </div>
+            <div class="analysis-box" style="margin-top:16px; background: linear-gradient(135deg, #f0fff4, #e8f5e9);">
+                <h3 style="color: #2e7d32;">🎯 爆款内容共性特征</h3>
+                <ul>
+                    <li><strong>事件驱动型内容碾压常青内容</strong>：本周签证政策、BTS巡演等时效事件相关内容流量远超常规医美攻略</li>
+                    <li><strong>"医美+追星/旅行"跨界内容崛起</strong>：单独的医美攻略流量在下降，"演唱会+顺便做医美""樱花季+变美"等组合型内容表现更好</li>
+                    <li><strong>权威信源优先</strong>：人民网、商务部、韩联社等权威来源的内容在百度搜索排名中权重极高</li>
+                    <li><strong>实用工具型内容收藏率高</strong>：签证攻略、汇率换算、航班查询等"工具性"内容收藏远超阅读</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 文章结构分析 -->
+        <div class="section">
+            <h2><span class="icon">🏗️</span> 爆款文章结构拆解</h2>
+            <table>
+                <thead>
+                    <tr><th style="width:20%">维度</th><th style="width:40%">📌 签证政策类（本周最热）</th><th style="width:40%">📌 医美攻略类</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>标题策略</strong></td><td>"新政策出炉 变化巨大速看" — 恐惧错过型+数字型</td><td>"四件套全攻略" — 框架型+完整性暗示</td></tr>
+                    <tr><td><strong>开头Hook</strong></td><td>政策变化日期+直接影响（"3月30日起生效"）</td><td>痛点共鸣（"第一次去不知道从哪开始"）</td></tr>
+                    <tr><td><strong>主体结构</strong></td><td>新旧政策对比→适用人群→材料清单→办理流程</td><td>问题分类→逐一展开→数据对比→方案建议</td></tr>
+                    <tr><td><strong>数据/证据</strong></td><td>具体政策文件引用、适用城市名单、出签天数</td><td>价格数字、汇率对比、真实账单</td></tr>
+                    <tr><td><strong>结尾引导</strong></td><td>"转发给需要的朋友"+"收藏备用"</td><td>"你最担心什么？评论区聊聊"</td></tr>
+                    <tr><td><strong>核心差异</strong></td><td>权威性+紧迫感驱动转发</td><td>体验感+实用性驱动收藏</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 今日推荐选题 -->
+        <div class="section">
+            <h2><span class="icon">💡</span> 今日推荐选题 TOP 10</h2>
+            <p style="color:#666; margin-bottom:20px; font-size:14px;">结合今日热点资讯（签证放宽、BTS巡演、人民币升值、航线新增）和跨平台监测数据生成。</p>
+
+            <div class="topic-card">
+                <div class="topic-number">1</div>
+                <span class="topic-title">BTS巡演+韩国医美一次搞定：演唱会期间飞首尔变美全攻略</span>
+                <div class="topic-reason"><strong>选题依据</strong>：BTS兵役后首次世界巡演是本月最大K-pop事件，叠加签证放宽和航线新增，"追星+变美"组合型内容在本周监测中流量表现突出。演唱会期间机票/酒店价格有参考价值，能做出有数据支撑的攻略。</div>
+                <div class="topic-tags"><span>#BTS巡演</span><span>#韩国医美</span><span>#演唱会+医美</span><span>#首尔变美</span><span>#追星攻略</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：抖音（首发） / B站 / 小红书</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+BTS巡演票已经抢到了吧？既然要飞首尔，顺便把医美也做了，一趟 trip 搞定两件事。
+
+【主体内容】
+我帮你算了一下时间线：
+演唱会一般在晚上7-9点，白天有大把时间可以安排。
+
+建议流程：
+Day 1：到达→下午面诊（提前在BeautsGO预约好）→晚上演唱会
+Day 2：上午做项目（水光针/小气泡这种恢复快的）→下午逛街→晚上返程
+
+签证方面：14城市10年多次签已经生效了，说走就走。
+机票方面：石家庄新开了3条韩国航线，中韩航班周超1000班，选择很多。
+汇率方面：1人民币兑216韩元，比上个月更划算。
+
+关键是：演唱会期间江南区的皮肤科很多会被约满，一定要提前预约。BeautsGO上可以看哪家还有空位，直接选时间约。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你要去看BTS吗？打算顺便做什么项目？评论区帮你参考。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">2</div>
+                <span class="topic-title">14城市10年签到手后，第一次飞韩国做医美你需要知道的一切</span>
+                <div class="topic-reason"><strong>选题依据</strong>：3月30日签证放宽政策是本周百度/知乎/搜狐全平台最高热度事件，"10年多次签"搜索量碾压其他关键词。大量新获签用户会产生"既然能随时去，那怎么做医美"的衍生需求，这是一个全新的用户入口。</div>
+                <div class="topic-tags"><span>#10年签证</span><span>#韩国医美新手</span><span>#赴韩攻略</span><span>#韩国皮肤科</span><span>#签证利好</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：知乎（首发） / 百度 / 小红书</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+10年多次签到手了，随时能飞韩国。那第一次去做医美，从哪开始？
+
+【主体内容】
+先确认三件事：
+
+一是目的。你是想改善什么？抗衰（热玛吉/超声刀）、补水（水光针）、还是整体提升？先想清楚，不然到了江南区面对几十家诊所会懵。
+
+二是预算。韩国皮肤科价格确实比国内低，但加上机票酒店需要综合算。现在1人民币兑216韩元，比之前更划算。一般做2-3个项目以上，差旅费才能"赚回来"。
+
+三是预约方式。不要到了现场再排队。用BeautsGO提前约好时间和诊所，中文界面，价格评价都透明。
+
+然后是面诊。面诊时大白会分析你的面部状态，给出方案。有中文服务的诊所沟通会顺畅很多。
+
+术后注意：水光针/小气泡当天就能正常活动，热玛吉/超声刀需要1-3天恢复。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你是哪个城市的？10年签办了吗？打算第一次去做什么项目？</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">3</div>
+                <span class="topic-title">人民币升值+签证放宽，现在去韩国做医美比半年前便宜多少？</span>
+                <div class="topic-reason"><strong>选题依据</strong>：今日监测到人民币近1个月升值约1.06%，汇率话题在各平台搜索量上升。"到底便宜多少"是用户最核心的决策问题，数字型对比内容天然适合收藏和转发。</div>
+                <div class="topic-tags"><span>#汇率</span><span>#韩国医美价格</span><span>#价格对比</span><span>#赴韩成本</span><span>#热玛吉</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：什么值得买（首发） / 知乎 / 小红书</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+两个好消息：签证放宽了，人民币也升值了。我帮你算了一下，现在去韩国做医美比半年前到底省了多少。
+
+【主体内容】
+先看汇率变化：
+半年前1人民币≈213韩元，现在1人民币≈216韩元。看起来不多，但算到项目上就有差别了。
+
+以热玛吉为例：
+半年前韩国价格约1.5万人民币，现在同项目约1.35万，光汇率就省了约1500元。
+如果做热玛吉+水光+提升的组合，汇率差能省3000-5000元。
+
+再加上签证便利化：
+14城市10年签意味着不用每次重新办签证，省时间和签证费。石家庄还新增了3条韩国航线，机票选择更多。
+
+总体算下来，同样做一套项目，现在比半年前总成本能低10%-15%。
+
+查具体医院价格可以去BeautsGO，上面是医院直供的实时报价，不会被中间商加价。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你上次去韩国做医美花了多少？现在再去会不会更便宜？评论区比比价。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">4</div>
+                <span class="topic-title">石家庄/郑州/西安…二线城市直飞韩国航线大全，家门口就能出发做医美</span>
+                <div class="topic-reason"><strong>选题依据</strong>：今日监测到石家庄机场新增3条韩国航线，中韩航班周量破1000班次。二三线城市新增直飞航线打破了"只有北上广深才能方便飞韩国"的认知，是一个有新信息量的选题方向。</div>
+                <div class="topic-tags"><span>#中韩航班</span><span>#新增航线</span><span>#韩国医美</span><span>#二线城市</span><span>#直飞首尔</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：抖音（首发） / 小红书</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+以为只有北上广深才能方便飞韩国？2026年夏秋航季变了，石家庄、郑州、西安都能直飞了。
+
+【主体内容】
+2026年夏秋航季中韩航线变化：
+
+石家庄新开：清州、济州、釜山3条航线，同时加密首尔
+整体中韩航班量：每周超1000班次，韩国已经超越日本成为中国出境航班目的地第一名
+
+这意味着什么？
+1. 机票价格竞争更激烈，选择性更多
+2. 二三线城市出发更方便，不用先飞北上广再转
+3. "周末飞韩国"对更多人变成了现实
+
+对于做医美的人来说，多一条航线就多一个选择。时间成本降低了，做医美的决策门槛也就降低了。
+
+建议出发前用BeautsGO先约好诊所时间，到了直接面诊，不用浪费一天排队。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你所在的城市有直飞韩国的航线吗？票价大概多少？评论区聊聊。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">5</div>
+                <span class="topic-title">韩国皮肤科预约的6种方式实测：第4种我踩了大坑</span>
+                <div class="topic-reason"><strong>选题依据</strong>：预约攻略是各平台持续高搜索量的常青话题。"踩坑"类内容在知乎收藏率最高。"6种方式实测"提供完整的对比框架，有实际使用价值。</div>
+                <div class="topic-tags"><span>#预约攻略</span><span>#医美避坑</span><span>#韩国皮肤科</span><span>#BeautsGO</span><span>#实测对比</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：小红书（首发） / 知乎</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+韩国皮肤科预约方式我全试过了，6种里面踩了1个大坑，今天全部分享。
+
+【主体内容】
+方式一：官网预约。全韩文界面，很多入口像迷宫。✅ 正规但❌ 语言门槛高。
+
+方式二：电话预约。全韩语沟通，能交流的极少。❌ 不推荐。
+
+方式三：社交媒体私信。有些诊所有中文微信，但回复慢。⚠️ 看运气。
+
+方式四：当地代理/地陪。帮你约好时间和项目，但服务费500-2000元不等。❌ 我踩坑了——被推荐了一家回扣高的诊所，项目和价格都不是我想要的。
+
+方式五：旅游平台套餐。携程飞猪上有，但价格不透明。⚠️ 中间商赚差价。
+
+方式六（最推荐）：BeautsGO直接预约。中文界面，医院/项目/价格/评价全透明，还能直接选时间约面诊。没有中间商，价格和医院直接对接。
+
+总结：前面五种要么语言不通，要么价格不透明，要么多花冤枉钱。BeautsGO把这些痛点都解决了。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你们第一次去韩国是怎么预约的？有没有踩过坑？评论区说说。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">6</div>
+                <span class="topic-title">Super Junior演唱会同款变美路线：首尔江南区皮肤科+明洞妆发一条龙</span>
+                <div class="topic-reason"><strong>选题依据</strong>：Super Junior 20周年演唱会4月3-5日刚在首尔举办完，趁热度做"演唱会同款变美路线"能蹭到K-pop流量。"一条龙"暗示完整性和效率，适合短视频/图文攻略形式。</div>
+                <div class="topic-tags"><span>#Super Junior</span><span>#首尔变美</span><span>#韩国皮肤管理</span><span>#明洞妆发</span><span>#变美四件套</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：小红书（首发） / 抖音</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+看完Super Junior演唱会，发现台下的韩国小姐姐皮肤状态也太好了吧？其实她们的美貌密码就在江南区和明洞。
+
+【主体内容】
+整理了一条"看演唱会+变美"的一站式路线：
+
+📍 第一站：江南区皮肤科
+上午做皮肤管理（小气泡清洁+水光针），2小时搞定。
+推荐提前在BeautsGO上约好，韩国热门皮肤科很容易满。
+
+📍 第二站：明洞色彩测试
+下午去做个人色彩诊断，找到最适合你的颜色系。约300人民币，能省下大量试错成本。
+
+📍 第三站：明洞韩式妆发
+找一家韩妆店做完整妆发，拍证件照效果直接拉满。约100-250人民币。
+
+📍 第四站：晚上演唱会
+带着新皮肤+新妆发去看演出，状态拉满。
+
+整个过程总花费不到2500人民币，但体验感翻倍。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你追过哪场韩国演唱会？有没有顺便做医美？</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">7</div>
+                <span class="topic-title">5月YOASOBI首尔演唱会+医美行程怎么安排？这份攻略帮你省2000块</span>
+                <div class="topic-reason"><strong>选题依据</strong>：YOASOBI主唱几田莉拉5月23日首尔首次海外个人演唱会已定档，提前做攻略能抢占搜索排名。K-pop+医美的组合选题有持续流量窗口。</div>
+                <div class="topic-tags"><span>#YOASOBI</span><span>#首尔演唱会</span><span>#韩国医美</span><span>#5月行程</span><span>#省钱攻略</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：小红书（首发） / B站</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+YOASOBI 5月23日首尔首次海外个演已定档！既然要飞，不如顺便把医美做了，一趟省2000块。
+
+【主体内容】
+省钱逻辑很简单：
+单独飞一次韩国的机票+酒店≈3000-5000元
+把医美和演唱会安排在同一趟，省一次差旅费。
+
+5月行程建议：
+Day 1：到达→下午面诊（BeautsGO提前约好）
+Day 2：上午做项目→下午明洞逛逛
+Day 3：自由活动/复诊
+Day 4：晚上YOASOBI演唱会→Day 5返程
+
+适合在演唱会期间做的项目：
+✅ 水光针、小气泡（当天无恢复期）
+✅ 色彩测试、韩式妆发
+⚠️ 热玛吉/超声刀（建议提前1-2天做，给恢复留余地）
+
+汇率方面1人民币兑216韩元，现在做比半年前划算。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你要去看YOASOBI吗？打算搭配做什么医美项目？</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">8</div>
+                <span class="topic-title">面诊时医生会问什么？这8个问题去之前一定要想好答案</span>
+                <div class="topic-reason"><strong>选题依据</strong>：实用干货型内容收藏率持续最高。"面诊"是赴韩医美的核心环节，但很少有人系统整理过面诊常见问题。8个问题的数字框架便于记忆和传播。</div>
+                <div class="topic-tags"><span>#面诊攻略</span><span>#韩国皮肤科</span><span>#医美避坑</span><span>#面诊准备</span><span>#韩国变美</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：小红书（首发） / 知乎</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+去韩国做医美面诊，医生一定会问你这8个问题。提前想好答案，面诊效率能翻倍。
+
+【主体内容】
+问题一：你最想改善什么？
+不是"我也不知道"，而是"紧致/补水/淡斑"要提前明确。
+
+问题二：以前做过什么项目？
+治疗历史影响方案，最好能说出项目名称和时间。
+
+问题三：有没有药物过敏？
+注射类项目必须如实告知，安全第一。
+
+问题四：你的预算大概多少？
+说清楚预算，医生会在范围内推荐最合适的，不是最贵的。
+
+问题五：希望看到什么样的变化？
+自然效果还是变化明显？这直接决定方案走向。
+
+问题六：术后能不能按时复诊？
+有些项目需要多次治疗才能达到最佳效果。
+
+问题七：日常护肤习惯是什么？
+皮肤状态和日常护理息息相关。
+
+问题八：有没有在服药或备孕？
+特定药物和生理状态会影响治疗方案。
+
+提前把答案写在手机备忘录里，到了面诊室直接拿给翻译看。如果担心语言问题，用BeautsGO约有中文服务的诊所。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你面诊的时候被问过什么意料之外的问题？评论区分享。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">9</div>
+                <span class="topic-title">韩国Willbe整形外科深扒：医生资质、真实案例、价格全公开</span>
+                <div class="topic-reason"><strong>选题依据</strong>：单家医院测评/揭秘类内容在百度和社区平台搜索量持续走高。用户"选医院"决策链中会逐一搜索特定诊所名称，这类内容长尾流量价值高。</div>
+                <div class="topic-tags"><span>#Willbe整形外科</span><span>#韩国整形</span><span>#医美测评</span><span>#医生资质</span><span>#韩国皮肤科</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：百度（首发） / 知乎</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+"Willbe整形外科到底靠谱吗？"后台私信被问爆了，今天帮你扒清楚。
+
+【主体内容】
+研究一家韩国诊所，我一般看三个维度：
+
+维度一：医生资质
+有没有韩国整形外科医师资格证？临床经验多少年？擅长什么领域？韩国卫生部官网可查。
+
+维度二：真实案例
+不看官方宣传图，看真实用户反馈。Naver评分、BeautsGO上的用户评价更有参考价值。
+
+维度三：价格透明度
+有没有隐形消费？面诊后会不会临时加项目？正规诊所面诊时会给出明确报价单。
+
+还有一个容易被忽略的：是否对foreigners友好？有没有中文服务？沟通顺畅直接影响整个体验。
+
+建议选任何诊所之前，先在BeautsGO上看基本信息、价格范围和用户评价，做到心中有数再面诊。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你还想让我深扒哪家诊所？评论区告诉我，点赞最高的下一期安排。</div>
+            </div>
+
+            <div class="topic-card">
+                <div class="topic-number">10</div>
+                <span class="topic-title">中韩航线周破1000班+签证10年签：2026是去韩国做医美最好的时机吗？</span>
+                <div class="topic-reason"><strong>选题依据</strong>：本周同时出现三大赴韩利好（签证放宽+航线破千+人民币升值），将三个数据点整合成一篇"时机判断"型内容，信息密度高，适合引发讨论和转发。</div>
+                <div class="topic-tags"><span>#赴韩时机</span><span>#10年签证</span><span>#中韩航班</span><span>#汇率利好</span><span>#韩国医美</span></div>
+                <div style="margin-top:8px;font-size:13px;color:#888;">📋 <strong>适用平台</strong>：什么值得买（首发） / 知乎 / 百度</div>
+                <div class="topic-script">
+<h4>📝 文案脚本</h4>
+【开篇Hook】
+三个信号同时出现：签证放宽了、航班变多了、汇率更划算了。2026是不是去韩国做医美最好的时机？
+
+【主体内容】
+我们用数据说话：
+
+利好一：签证
+3月30日起14城市10年多次签生效，说走就走不再是口号。
+利好二：航线
+中韩周航班量破1000班次，韩国超越日本成出境航班第一。石家庄/郑州/西安等二线城市也新增了直飞航线。
+利好三：汇率
+1人民币兑216韩元，近1个月升值1.06%，意味着同样的人民币在韩国能买到更多服务。
+
+三个利好叠加，意味着：
+→ 时间成本降低（签证方便、航班多）
+→ 经济成本降低（汇率划算、航线竞争压低票价）
+→ 决策门槛降低（随时能去、随时能回）
+
+但也有变量需要注意：
+国内航线燃油附加费4月5日起上涨5倍，中韩航线虽暂未调整但可能有传导效应。
+
+总体判断：如果你一直在犹豫要不要去，现在确实是近几年综合成本最低的窗口期。
+
+用BeautsGO提前看好项目和价格，等时机到了直接出发。
+
+👉 预约链接：https://app.yestokr.com/pages/index/index?shareType=2&shareId=104
+
+【结尾引导】
+你觉得现在是去韩国做医美的好时机吗？还是打算再等等？评论区聊聊。</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>BeautsGO彼此美 · 韩国医美对标账号监测工具</p>
+            <p>本报告由AI自动生成，数据来源于各平台公开搜索结果 · 仅供参考</p>
+            <p style="margin-top:8px;">报告生成时间：2026年4月16日 14:30 | 下期预告：2026年4月17日 09:00</p>
+        </div>
+    </div>
 </body>
 </html>
